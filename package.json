@@ -4,7 +4,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
         "worker": "php artisan queue:work",
         "dev:concurrent": "concurrently \"npm run dev\" \"npm run worker\""
     },
