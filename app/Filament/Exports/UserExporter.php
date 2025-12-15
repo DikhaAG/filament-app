@@ -15,16 +15,20 @@ class UserExporter extends Exporter
     public static function getColumns(): array
     {
         return [
-            ExportColumn::make('id')
-                ->label('ID'),
+            /* ExportColumn::make('id') */
+            /*     ->label('ID'), */
             ExportColumn::make('name'),
             ExportColumn::make('email'),
-            ExportColumn::make('email_verified_at'),
-            ExportColumn::make('is_admin'),
+            ExportColumn::make('email_verified_at')
+                ->label('email_verifikasi'),
+            ExportColumn::make('is_admin')
+                ->label('admin'),
+            ExportColumn::make('regional.name')
+                ->label('Regional'), // Relasi regional_id.name
+            ExportColumn::make('branch.name')
+                ->label('Branch'),   // Relasi branch_id.name
             ExportColumn::make('created_at'),
             ExportColumn::make('updated_at'),
-            ExportColumn::make('regional_id'),
-            ExportColumn::make('branch_id'),
         ];
     }
 
