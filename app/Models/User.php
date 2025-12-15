@@ -10,7 +10,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +22,20 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'regional_id',
+        'branch_id',
     ];
+
+    public function regional()
+    {
+        return $this->belongsTo(Regional::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
