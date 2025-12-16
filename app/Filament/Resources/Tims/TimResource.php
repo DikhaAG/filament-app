@@ -23,6 +23,7 @@ class TimResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedUserGroup; // Ikon Group
     protected static ?string $navigationLabel = 'Daftar Tim';
     protected static ?string $recordTitleAttribute = 'name'; // Dari prompt
+    protected static ?string $pluralModelLabel = 'Daftar Anggota Tim'; // Label yang akan muncul di header
 
     // 🎯 TAMBAHKAN FILTER QUERY: Hanya User dengan is_admin = false
     public static function getEloquentQuery(): Builder
