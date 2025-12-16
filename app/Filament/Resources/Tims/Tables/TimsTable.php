@@ -2,12 +2,11 @@
 
 namespace App\Filament\Resources\Tims\Tables;
 
-use App\Filament\Resources\Users\UserResource; // <-- Wajib: Untuk navigasi Edit
+use App\Filament\Resources\Users\UserResource;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-/* use Filament\Tables\Actions\Action; // <-- Wajib: Menggantikan EditAction bawaan */
-use Filament\Actions\Action; // <-- Wajib: Menggantikan EditAction bawaan
-use Filament\Tables\Columns\TextColumn; // <-- Wajib: Untuk menampilkan data
+use Filament\Actions\Action;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class TimsTable
