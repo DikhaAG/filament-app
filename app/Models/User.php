@@ -29,12 +29,12 @@ class User extends Authenticatable
 
     public function regional()
     {
-        return $this->belongsTo(Regional::class);
+        return $this->belongsTo(Regional::class, 'regional_id');
     }
 
     public function branch()
     {
-        return $this->belongsTo(Branch::class);
+        return $this->belongsTo(Branch::class, 'branch_id');
     }
 
     /**
