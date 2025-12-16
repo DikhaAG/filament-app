@@ -41,24 +41,24 @@ class UsersTable
                     ->label('Branch')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make("email_verified_at")
-                    ->label("Terverifikasi")
-                    ->badge(function ($value) {
-                        if (is_null($value)) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    })
-                    ->state(fn($value) => is_null($value) ? "Belum Terverifikasi" : $value)
-                    ->color(function ($value) {
-                        if (is_null($value)) {
-                            return "danger";
-                        }
-                        return "primary";
-                    })
-                    ->searchable()
-                    ->sortable(),
+                /* TextColumn::make("email_verified_at") */
+                /*     ->label("Terverifikasi") */
+                /*     ->badge(function ($value) { */
+                /*         if (is_null($value)) { */
+                /*             return true; */
+                /*         } else { */
+                /*             return false; */
+                /*         } */
+                /*     }) */
+                /*     ->state(fn($value) => is_null($value) ? "Belum Terverifikasi" : $value) */
+                /*     ->color(function ($value) { */
+                /*         if (is_null($value)) { */
+                /*             return "danger"; */
+                /*         } */
+                /*         return "primary"; */
+                /*     }) */
+                /*     ->searchable() */
+                /*     ->sortable(), */
             ])
             ->filters([
                 SelectFilter::make('regional_id')
