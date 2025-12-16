@@ -16,4 +16,10 @@ class EditTim extends EditRecord
             DeleteAction::make(),
         ];
     }
+
+    // 🎯 Arahkan ke halaman 'index' (Daftar Tim) setelah berhasil menyimpan
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

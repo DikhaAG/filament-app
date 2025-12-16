@@ -2,10 +2,9 @@
 
 namespace App\Filament\Resources\Tims\Tables;
 
-use App\Filament\Resources\Users\UserResource;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\Action;
+use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -39,15 +38,15 @@ class TimsTable
                 // Anda bisa menambahkan SelectFilter untuk Regional/Branch di sini jika diperlukan
             ])
             ->recordActions([
-                // GANTI EditAction::make() dengan Aksi Kustom
-                Action::make('edit_full_user')
-                    ->label('Edit User Penuh')
-                    ->icon('heroicon-o-pencil')
-                    ->color('primary')
-                    // 🎯 Logika Navigasi: Arahkan ke halaman 'edit' di UserResource
-                    // $record adalah model User saat ini
-                    ->url(fn($record): string => UserResource::getUrl('edit', ['record' => $record->id]))
-                    ->openUrlInNewTab(),
+                EditAction::make(),
+                /* Action::make('edit_full_user') */
+                /*     ->label('Edit User Penuh') */
+                /*     ->icon('heroicon-o-pencil') */
+                /*     ->color('primary') */
+                /*     // 🎯 Logika Navigasi: Arahkan ke halaman 'edit' di UserResource */
+                /*     // $record adalah model User saat ini */
+                /*     ->url(fn($record): string => UserResource::getUrl('edit', ['record' => $record->id])) */
+                /*     ->openUrlInNewTab(), */
                 // ----------------------------------------------------
             ])
             ->toolbarActions([

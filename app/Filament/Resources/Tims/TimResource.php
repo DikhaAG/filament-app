@@ -7,6 +7,8 @@ use App\Models\User; // <-- BARU: Import Model User
 use App\Filament\Resources\Tims\Pages\ListTims;
 use App\Filament\Resources\Tims\Schemas\TimForm;
 use App\Filament\Resources\Tims\Tables\TimsTable;
+use App\Filament\Resources\Tims\Pages\CreateTim;
+use App\Filament\Resources\Tims\Pages\EditTim;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -54,8 +56,8 @@ class TimResource extends Resource
     {
         return [
             'index' => ListTims::route('/'),
-            // 'create' => CreateTim::route('/create'), // HAPUS INI
-            // 'edit' => EditTim::route('/{record}/edit'), // HAPUS INI
+            'create' => CreateTim::route('/create'),
+            'edit' => EditTim::route('/{record}/edit'),
         ];
     }
 }
