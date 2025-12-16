@@ -23,9 +23,9 @@ class UserForm
                     // Mengubah state menjadi hash sebelum disimpan
                     ->dehydrateStateUsing(fn(string $state): string => Hash::make($state))
                     // Pastikan password tidak di-hash saat edit jika tidak diubah
-                    ->dehydrated(fn(string $operation): bool => $operation === 'create')
-                    // Sembunyikan field saat mengedit user
-                    ->hiddenOn('edit'),
+                    ->dehydrated(fn(string $operation): bool => $operation === 'create'),
+                // Sembunyikan field saat mengedit user
+                /* ->hiddenOn('edit'), */
                 // 1. Checkbox is_admin
                 Checkbox::make('is_admin')
                     ->label('Administrator'), // Label di Form
