@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Regionals\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use App\Filament\Resources\Users\UserResource;
@@ -32,19 +33,23 @@ class RegionalsTable
             ])
             ->recordActions([
                 EditAction::make(),
-                // --- Aksi Baru: Lihat Users (Filter Regional) ---
+
                 Action::make('view_users')
-                    ->label('Lihat Users')
+                    ->label('Tim')
                     ->icon('heroicon-o-users')
+                    // 🎯 Tampilkan Jumlah Users sebagai Badge
+                    ->badge(fn($record): int => $record->users()->count())
+                    // Opsional: Atur warna badge (misalnya hijau jika ada user, abu-abu jika nol)
+                    ->badgeColor(fn($record): string => $record->users()->count() > 0 ? 'success' : 'gray')
                     ->url(
                         fn($record)
-                        // Menggunakan UserResource::getUrl untuk membuat URL ke halaman index Users
                         => UserResource::getUrl('index', [
-                            // Menambahkan parameter filter untuk Regional ID
-                            'tableFilters' => ['regional_id' => $record->id],
+                            'filters' => ['regional_id' => ['value' => $record->id] ],
                         ])
                     )
-                    ->openUrlInNewTab(), // Opsional: Buka di tab baru
+                    ->openUrlInNewTab(),
+                DeleteAction::make(),
+
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
