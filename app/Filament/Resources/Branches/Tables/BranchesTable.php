@@ -7,6 +7,8 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Actions\Action;
+use App\Filament\Resources\Users\UserResource;
 
 class BranchesTable
 {
@@ -30,6 +32,17 @@ class BranchesTable
             ])
             ->recordActions([
                 EditAction::make(),
+                // --- Aksi View Users ---
+                Action::make('view_users')
+                    ->label('Lihat Users')
+                    ->icon('heroicon-o-users')
+                    ->url(
+                        fn($record)
+                        => UserResource::getUrl('index', [
+                            'tableFilters' => ['branch_id' => $record->id],
+                        ])
+                    )
+                    ->openUrlInNewTab(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
